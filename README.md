@@ -1,0 +1,1 @@
+# samurai-japan-hp-2026
