@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サムライ・ジャパン株式会社 | 熊本の不動産売主・自社保有物件</title>
+<style>
+  :root{
+    --navy:#1a3a5c;
+    --navy-dark:#0f2845;
+    --navy-light:#2c5482;
+    --gold:#b8975a;
+    --gold-light:#d4b87a;
+    --cream:#f7f4ee;
+    --gray-bg:#f5f6f8;
+    --gray-line:#e3e6eb;
+    --text:#2a2a2a;
+    --text-sub:#666;
+    --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN W3","Yu Gothic Medium","游ゴシック Medium",YuGothic,"游ゴシック体",sans-serif;
+    color:var(--text);
+    line-height:1.8;
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1100px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-block;padding:16px 36px;border-radius:2px;font-weight:600;font-size:14px;transition:all .25s;letter-spacing:.08em;cursor:pointer;border:none;text-align:center}
+  .btn-gold{background:var(--gold);color:#fff;box-shadow:0 4px 14px rgba(184,151,90,.3)}
+  .btn-gold:hover{background:#a68549;transform:translateY(-2px);box-shadow:0 8px 20px rgba(184,151,90,.4)}
+  .btn-outline-white{background:transparent;color:#fff;border:1.5px solid #fff}
+  .btn-outline-white:hover{background:#fff;color:var(--navy)}
+  .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+  .btn-outline:hover{background:var(--navy);color:#fff}
+
+  /* ===== Header (LP用シンプル) ===== */
+  header{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-line);position:fixed;top:0;left:0;right:0;z-index:100}
+  .header-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;max-width:1200px;margin:0 auto}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-img{height:80px;width:auto;display:block}
+  .logo-mark{width:42px;height:42px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;font-family:serif;border-bottom:3px solid var(--gold)}
+  .logo-text{font-size:17px;font-weight:700;color:var(--navy);letter-spacing:.05em;line-height:1.2}
+  .logo-text small{display:block;font-size:9px;color:var(--text-sub);font-weight:400;letter-spacing:.15em;margin-top:3px}
+  .header-nav{display:flex;gap:28px;align-items:center}
+  .header-nav a{font-size:13px;font-weight:600;color:var(--text);transition:color .2s}
+  .header-nav a:hover{color:var(--navy)}
+  .header-cta-btn{background:var(--navy);color:#fff;padding:10px 24px;font-size:13px;font-weight:600;letter-spacing:.05em;transition:background .2s}
+  .header-cta-btn:hover{background:var(--navy-dark);color:#fff}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;min-height:100vh;background:linear-gradient(135deg,#0a1c34 0%,#1a3a5c 50%,#2c5482 100%);overflow:hidden;color:#fff;display:flex;align-items:center;padding-top:120px}
+  .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 75% 30%,rgba(184,151,90,.18),transparent 55%);}
+  .hero-pattern{position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 22px)}
+  .hero-decor{position:absolute;right:-200px;bottom:-200px;width:600px;height:600px;border:1px solid rgba(184,151,90,.2);border-radius:50%}
+  .hero-decor::before{content:"";position:absolute;inset:60px;border:1px solid rgba(184,151,90,.12);border-radius:50%}
+  .hero-inner{position:relative;z-index:2;width:100%;text-align:center;padding:60px 24px}
+  .hero-tag{display:inline-block;font-size:12px;letter-spacing:.4em;color:var(--gold-light);padding:6px 18px;border:1px solid rgba(212,184,122,.4);margin-bottom:36px}
+  .hero h1{font-size:56px;font-weight:700;line-height:1.4;margin-bottom:32px;letter-spacing:.04em;font-family:serif}
+  .hero h1 span{color:var(--gold-light);display:inline-block;position:relative}
+  .hero-lead{font-size:17px;opacity:.92;max-width:640px;margin:0 auto 56px;line-height:2}
+  .hero-cta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+  .hero-scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:10px;letter-spacing:.3em;writing-mode:vertical-rl}
+  .hero-scroll::after{content:"";display:block;width:1px;height:40px;background:rgba(255,255,255,.4);margin:12px auto 0}
+
+  /* ===== Section common ===== */
+  section{padding:120px 0}
+  .section-head{text-align:center;margin-bottom:70px}
+  .section-tag{display:block;font-size:11px;color:var(--gold);letter-spacing:.5em;margin-bottom:18px;font-weight:600}
+  .section-title{font-size:36px;font-weight:700;color:var(--navy);letter-spacing:.05em;line-height:1.4;font-family:serif}
+  .section-title-sub{display:block;font-size:14px;color:var(--text-sub);font-weight:400;margin-top:14px;letter-spacing:.05em;font-family:inherit}
+
+  /* ===== Concept ===== */
+  .concept{background:var(--cream);position:relative}
+  .concept-content{max-width:780px;margin:0 auto;text-align:center}
+  .concept p{font-size:16px;line-height:2.2;color:var(--text);margin-bottom:24px}
+  .concept p:last-child{margin-bottom:0}
+  .concept .accent{color:var(--navy);font-weight:700;font-size:20px;display:block;margin:32px 0}
+
+  /* ===== Services ===== */
+  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:900px;margin:0 auto}
+  .service-card{background:#fff;padding:48px 36px;border:1px solid var(--gray-line);transition:all .3s;position:relative}
+  .service-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 20px 40px rgba(15,40,69,.08)}
+  .service-num{font-family:serif;font-size:14px;color:var(--gold);letter-spacing:.2em;margin-bottom:18px;font-weight:600}
+  .service-card h3{color:var(--navy);font-size:22px;margin-bottom:18px;font-weight:700;font-family:serif}
+  .service-card p{font-size:14px;color:var(--text-sub);line-height:1.9}
+
+  /* ===== Stats ===== */
+  .stats{background:var(--navy);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+  .stats::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(184,151,90,.1),transparent 50%)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;position:relative;z-index:2}
+  .stat-item{position:relative}
+  .stat-item:not(:last-child)::after{content:"";position:absolute;right:-16px;top:20%;height:60%;width:1px;background:rgba(255,255,255,.15)}
+  .stat-num{font-size:52px;font-weight:700;color:var(--gold-light);font-family:serif;line-height:1}
+  .stat-num small{font-size:18px;margin-left:4px;color:#fff}
+  .stat-label{font-size:11px;opacity:.7;margin-top:12px;letter-spacing:.25em}
+  .stat-jp{font-size:13px;margin-top:6px;opacity:.95}
+
+  /* ===== Why us ===== */
+  .why-us{background:#fff}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .why-item{text-align:center;padding:0 12px}
+  .why-num{font-family:serif;font-size:72px;color:var(--gold);font-weight:400;line-height:1;margin-bottom:20px;display:block}
+  .why-item h3{font-size:20px;margin-bottom:18px;font-weight:700;color:var(--navy);font-family:serif;line-height:1.5}
+  .why-item p{font-size:14px;color:var(--text-sub);line-height:2}
+
+  /* ===== Properties (物件一覧) ===== */
+  .properties{background:#fff}
+  .properties-filter{display:flex;justify-content:center;gap:10px;margin-bottom:48px;flex-wrap:wrap}
+  .prop-filter{padding:8px 22px;font-size:12px;color:var(--text-sub);background:var(--gray-bg);border:1px solid var(--gray-line);letter-spacing:.1em;font-weight:600;cursor:pointer;transition:all .2s}
+  .prop-filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .properties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .property-card{background:#fff;border:1px solid var(--gray-line);overflow:hidden;transition:all .25s}
+  .property-card:hover{box-shadow:0 16px 40px rgba(15,40,69,.12);transform:translateY(-4px)}
+  .property-img{height:200px;background:linear-gradient(135deg,#c8d4e0,#8fa3b8);position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-size:48px;font-family:serif;overflow:hidden}
+  .property-img.b{background:linear-gradient(135deg,#a8b8c8,#6a7d92)}
+  .property-img.c{background:linear-gradient(135deg,#b8c5b0,#7a8a72)}
+  .property-img.d{background:linear-gradient(135deg,#c5b8a8,#8a7d6a)}
+  .property-img.e{background:linear-gradient(135deg,#9aa8b8,#5a6878)}
+  .property-img.f{background:linear-gradient(135deg,#b0bcc5,#727f8a)}
+  .property-tag{position:absolute;top:12px;left:12px;background:var(--navy);color:#fff;font-size:11px;padding:4px 12px;font-weight:600;letter-spacing:.1em}
+  .property-tag.new{background:var(--gold)}
+  .property-tag.sale{background:#a8434a}
+  .property-body{padding:22px}
+  .property-price{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:4px;font-family:serif;line-height:1.2}
+  .property-price small{font-size:13px;font-weight:400;color:var(--text-sub);margin-left:4px}
+  .property-name{font-size:15px;font-weight:700;margin-bottom:10px;color:var(--text)}
+  .property-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .property-meta span{font-size:11px;background:var(--gray-bg);color:var(--text-sub);padding:4px 10px}
+  .property-info{font-size:12px;color:var(--text-sub);border-top:1px dashed var(--gray-line);padding-top:12px;line-height:1.8}
+  .property-info b{color:var(--text);font-weight:600;display:inline-block;width:54px}
+  .properties-note{text-align:center;margin-top:50px;font-size:13px;color:var(--text-sub)}
+  .properties-note .btn{margin-top:18px}
+
+  /* ===== Clients (取引企業) ===== */
+  .clients{background:var(--cream)}
+  .clients-intro{text-align:center;max-width:680px;margin:0 auto 56px;font-size:15px;color:var(--text-sub);line-height:2}
+  .clients-categories{display:flex;justify-content:center;gap:12px;margin-bottom:48px;flex-wrap:wrap}
+  .client-cat{padding:8px 20px;font-size:12px;color:var(--navy);background:#fff;border:1px solid var(--navy);letter-spacing:.1em;font-weight:600}
+  .clients-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--gray-line);border:1px solid var(--gray-line);max-width:1080px;margin:0 auto}
+  .client-cell{background:#fff;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;transition:background .25s;text-align:center}
+  .client-cell:hover{background:var(--cream)}
+  .client-logo{font-family:serif;font-size:18px;color:var(--navy);font-weight:700;letter-spacing:.05em;line-height:1.2}
+  .client-logo.sans{font-family:inherit;font-weight:800;letter-spacing:.15em;font-size:14px}
+  .client-logo.italic{font-style:italic;color:#2c5482}
+  .client-logo .accent{color:var(--gold);margin:0 2px}
+  .client-sub{font-size:9px;color:var(--text-sub);letter-spacing:.2em;margin-top:6px}
+  .clients-note{text-align:center;margin-top:36px;font-size:12px;color:var(--text-sub);letter-spacing:.05em}
+
+  /* ===== Company ===== */
+  .company{background:#fff}
+  .company-table{max-width:780px;margin:0 auto;border-collapse:collapse;width:100%}
+  .company-table tr{border-bottom:1px solid var(--gray-line)}
+  .company-table tr:first-child{border-top:1px solid var(--gray-line)}
+  .company-table th,.company-table td{padding:22px 16px;text-align:left;font-size:14px;vertical-align:top}
+  .company-table th{color:var(--navy);font-weight:700;width:200px;letter-spacing:.05em}
+  .company-table td{color:var(--text-sub);line-height:1.9}
+
+  /* ===== Contact ===== */
+  .contact{background:linear-gradient(135deg,#0f2845,#1a3a5c);color:#fff;position:relative;overflow:hidden}
+  .contact::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 30% 30%,rgba(184,151,90,.12),transparent 60%)}
+  .contact .section-title{color:#fff}
+  .contact .section-title-sub{color:rgba(255,255,255,.7)}
+  .contact-wrap{max-width:720px;margin:0 auto;position:relative;z-index:2}
+  .contact-form{background:rgba(255,255,255,.05);padding:48px;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}
+  .form-row{margin-bottom:24px}
+  .form-row label{display:block;font-size:12px;letter-spacing:.1em;margin-bottom:8px;color:var(--gold-light);font-weight:600}
+  .form-row label .req{color:#f0b8b8;margin-left:6px;font-size:10px}
+  .form-row input,.form-row select,.form-row textarea{width:100%;padding:14px 16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:14px;font-family:inherit;border-radius:2px;transition:all .2s}
+  .form-row input::placeholder,.form-row textarea::placeholder{color:rgba(255,255,255,.4)}
+  .form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.12)}
+  .form-row textarea{min-height:120px;resize:vertical}
+  .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .form-submit{text-align:center;margin-top:36px}
+  .form-submit .btn{padding:18px 60px;font-size:15px}
+  .form-note{font-size:12px;color:rgba(255,255,255,.6);text-align:center;margin-top:20px;line-height:1.8}
+
+  .contact-tel{text-align:center;margin-top:50px;padding-top:40px;border-top:1px solid rgba(255,255,255,.15);position:relative;z-index:2}
+  .contact-tel small{display:block;font-size:11px;letter-spacing:.2em;color:var(--gold-light);margin-bottom:14px}
+  .contact-tel strong{font-size:42px;font-family:serif;color:#fff;letter-spacing:.05em;font-weight:400}
+  .contact-tel .hours{display:block;font-size:12px;opacity:.7;margin-top:10px}
+
+  /* ===== Footer ===== */
+  footer{background:#0a1c34;color:#fff;padding:50px 0 24px}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 24px;text-align:center}
+  .footer-logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:20px}
+  .footer-logo .logo-text{color:#fff}
+  .footer-logo .logo-img{height:100px;width:auto}
+  .footer-info{font-size:12px;opacity:.6;line-height:2;margin-bottom:24px}
+  .footer-nav{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .footer-nav a{font-size:12px;opacity:.7;letter-spacing:.05em;transition:opacity .2s}
+  .footer-nav a:hover{opacity:1;color:var(--gold-light)}
+  .copyright{font-size:11px;opacity:.4;letter-spacing:.1em}
+
+  /* ===== Design note ===== */
+  .design-note{background:#fffbeb;border-left:4px solid var(--gold);padding:14px 20px;font-size:12px;color:#7a5a1c;position:fixed;bottom:0;left:0;right:0;z-index:200;box-shadow:0 -4px 12px rgba(0,0,0,.06)}
+  .design-note strong{color:var(--gold)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:900px){
+    .hero h1{font-size:34px}
+    .hero-lead{font-size:14px}
+    section{padding:80px 0}
+    .section-title{font-size:26px}
+    .services-grid,.why-grid,.form-row-2{grid-template-columns:1fr}
+    .clients-grid{grid-template-columns:repeat(2,1fr)}
+    .properties-grid{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+    .stat-item::after{display:none}
+    .header-nav{display:none}
+    .company-table th{width:auto;display:block;padding:14px 0 4px;border:none}
+    .company-table td{display:block;padding:0 0 14px}
+    .contact-form{padding:32px 20px}
+    .contact-tel strong{font-size:32px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="logo.png" alt="サムライ・ジャパン株式会社" class="logo-img">
+    </div>
+    <nav class="header-nav">
+      <a href="#services">事業内容</a>
+      <a href="#clients">取引企業</a>
+      <a href="#company">会社概要</a>
+    </nav>
+    <a href="#contact" class="header-cta-btn">お問い合わせ →</a>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-decor"></div>
+  <div class="hero-inner">
+    <span class="hero-tag">KUMAMOTO REAL ESTATE</span>
+    <h1>熊本で、<br><span>自社保有物件を直接販売</span>。</h1>
+    <p class="hero-lead">2009年創業、熊本に根ざした不動産会社。<br>自社で保有する物件の販売と、店舗・事務所などテナント物件の賃貸を、売主として直接お届けします。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-gold">お問い合わせ</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</div>
+
+<!-- ===== Services ===== -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">OUR BUSINESS</span>
+      <h2 class="section-title">事業内容<span class="section-title-sub">- 自社保有物件の販売と賃貸 -</span></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">BUSINESS 01</div>
+        <h3>自社保有物件の販売</h3>
+        <p>当社が保有する土地・戸建・マンション・収益物件などを、売主として直接販売いたします。物件の経緯や状態についても責任を持ってご説明します。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">BUSINESS 02</div>
+        <h3>自社保有テナント物件の賃貸</h3>
+        <p>熊本市内に保有する店舗・事務所・倉庫などの事業用物件を、オーナーとして直接賃貸いたします。出店・移転をお考えの事業者様と、貸主である当社が直接お話しできる安心感が強みです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Properties (売り出し中物件) ===== 非公開中（戻す場合は下のコメント解除） -->
+<!--
+<section class="properties" id="properties">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">OUR PROPERTIES</span>
+      <h2 class="section-title">自社保有物件<span class="section-title-sub">- 現在、販売中・テナント募集中の物件 -</span></h2>
+    </div>
+
+    <div class="properties-filter">
+      <span class="prop-filter active">すべて</span>
+      <span class="prop-filter">販売中</span>
+      <span class="prop-filter">テナント募集中</span>
+    </div>
+
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="property-img">
+          <span class="property-tag">販売中</span>◆
+        </div>
+        <div class="property-body">
+          <div class="property-price">応談</div>
+          <div class="property-name">中央区水道町 マンション</div>
+          <div class="property-meta">
+            <span>3LDK</span><span>72.5㎡</span><span>南向き</span><span>築8年</span>
+          </div>
+          <div class="property-info">
+            <div><b>所在地</b>熊本市中央区水道町</div>
+            <div><b>交通</b>市電 水道町電停 徒歩2分</div>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img b">
+          <span class="property-tag">販売中</span>◇
+        </div>
+        <div class="property-body">
+          <div class="property-price">応談</div>
+          <div class="property-name">東区健軍町 戸建</div>
+          <div class="property-meta">
+            <span>4LDK</span><span>108.2㎡</span><span>駐車2台</span><span>築12年</span>
+          </div>
+          <div class="property-info">
+            <div><b>所在地</b>熊本市東区健軍町</div>
+            <div><b>交通</b>市電 健軍町電停 徒歩7分</div>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img c">
+          <span class="property-tag">販売中</span>◆
+        </div>
+        <div class="property-body">
+          <div class="property-price">応談</div>
+          <div class="property-name">中央区帯山4丁目 土地</div>
+          <div class="property-meta">
+            <span>土地</span><span>134.78坪</span>
+          </div>
+          <div class="property-info">
+            <div><b>所在地</b>熊本市中央区帯山4丁目</div>
+            <div><b>交通</b>JR豊肥本線「東海学園前」駅 バス4分／帯山4丁目バス停 徒歩2分</div>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img d">
+          <span class="property-tag sale">テナント募集</span>◈
+        </div>
+        <div class="property-body">
+          <div class="property-price">応談</div>
+          <div class="property-name">下通り 1階路面店舗</div>
+          <div class="property-meta">
+            <span>店舗</span><span>32.5㎡</span><span>飲食可</span><span>スケルトン</span>
+          </div>
+          <div class="property-info">
+            <div><b>所在地</b>熊本市中央区下通</div>
+            <div><b>交通</b>市電 通町筋電停 徒歩3分</div>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img e">
+          <span class="property-tag">販売中</span>◇
+        </div>
+        <div class="property-body">
+          <div class="property-price">応談</div>
+          <div class="property-name">中央区手取本町 テナントビル</div>
+          <div class="property-meta">
+            <span>EV有</span>
+          </div>
+          <div class="property-info">
+            <div><b>所在地</b>熊本市中央区手取本町</div>
+            <div><b>交通</b>市電 通町筋電停 徒歩2分</div>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="property-img f">
+          <span class="property-tag">販売中</span>◇
+        </div>
+        <div class="property-body">
+          <div class="property-price">応談</div>
+          <div class="property-name">北区弓削5丁目 土地</div>
+          <div class="property-meta">
+            <span>土地</span><span>938坪</span>
+          </div>
+          <div class="property-info">
+            <div><b>所在地</b>熊本市北区弓削5丁目</div>
+            <div><b>交通</b>弓削立体橋 徒歩1分</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="properties-note">
+      ※ 上記は現在保有している物件の一部です。詳細・内覧のご希望はお問い合わせください。<br>
+      <a href="#contact" class="btn btn-outline">物件についてお問い合わせ →</a>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- ===== Clients (取引企業) ===== -->
+<section class="clients" id="clients">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">OUR CLIENTS</span>
+      <h2 class="section-title">主な取引企業<span class="section-title-sub">- Business Partners -</span></h2>
+    </div>
+    <p class="clients-intro">2009年の創業以来、多くの法人様・パートナー企業様とお取引をいただいております。<br>大手デベロッパーから地域の優良企業まで、業種・規模を問わず幅広くお応えしています。</p>
+
+    <div class="clients-categories">
+      <span class="client-cat">不動産・住宅</span>
+      <span class="client-cat">金融機関</span>
+      <span class="client-cat">法人顧客</span>
+    </div>
+
+    <div class="clients-grid">
+      <div class="client-cell"><div class="client-logo">東京建物</div><div class="client-sub">TOKYO TATEMONO</div></div>
+      <div class="client-cell"><div class="client-logo">積水ハウス</div><div class="client-sub">SEKISUI HOUSE</div></div>
+      <div class="client-cell"><div class="client-logo">三井トラスト不動産</div><div class="client-sub">MITSUI TRUST REALTY</div></div>
+      <div class="client-cell"><div class="client-logo">みずほ不動産</div><div class="client-sub">MIZUHO REALTY</div></div>
+      <div class="client-cell"><div class="client-logo" style="font-size:13px;line-height:1.5">一般財団法人<br>化学及血清療法研究所</div><div class="client-sub">KAKETSUKEN</div></div>
+
+      <div class="client-cell"><div class="client-logo">肥後銀行</div><div class="client-sub">HIGO BANK</div></div>
+      <div class="client-cell"><div class="client-logo">福岡銀行</div><div class="client-sub">BANK OF FUKUOKA</div></div>
+      <div class="client-cell"><div class="client-logo">熊本銀行</div><div class="client-sub">KUMAMOTO BANK</div></div>
+      <div class="client-cell"><div class="client-logo">西日本シティ銀行</div><div class="client-sub">NISHI-NIPPON CITY BANK</div></div>
+      <div class="client-cell"><div class="client-logo">りそな銀行</div><div class="client-sub">RESONA BANK</div></div>
+    </div>
+    <p class="clients-note">※ 敬称略 / 掲載は一部のお取引先様となります</p>
+  </div>
+</section>
+
+<!-- ===== Company ===== -->
+<section class="company" id="company">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">COMPANY PROFILE</span>
+      <h2 class="section-title">会社概要<span class="section-title-sub">- Company Information -</span></h2>
+    </div>
+    <table class="company-table">
+      <tr><th>商号</th><td>サムライ・ジャパン株式会社（SAMURAI JAPAN CO., LTD.）</td></tr>
+      <tr><th>設立</th><td>2009年4月</td></tr>
+      <tr><th>代表者</th><td>代表取締役 大塚 修央</td></tr>
+      <tr><th>所在地</th><td>〒862-0950 熊本県熊本市中央区水前寺6-33-13</td></tr>
+      <tr><th>事業内容</th><td>自社保有不動産の販売および賃貸</td></tr>
+      <tr><th>免許番号</th><td>熊本県知事（３）第5026号</td></tr>
+      <tr><th>免許有効期間</th><td>令和6年8月22日 〜 令和11年8月21日</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">CONTACT US</span>
+      <h2 class="section-title">お問い合わせ<span class="section-title-sub">- お気軽にご相談ください -</span></h2>
+    </div>
+    <div class="contact-wrap">
+      <form class="contact-form" onsubmit="event.preventDefault();alert('（デザインモックです）送信機能は実装時に組み込みます');">
+        <div class="form-row-2">
+          <div class="form-row">
+            <label>お名前<span class="req">必須</span></label>
+            <input type="text" placeholder="山田 太郎">
+          </div>
+          <div class="form-row">
+            <label>フリガナ</label>
+            <input type="text" placeholder="ヤマダ タロウ">
+          </div>
+        </div>
+        <div class="form-row">
+          <label>メールアドレス<span class="req">必須</span></label>
+          <input type="email" placeholder="example@email.com">
+        </div>
+        <div class="form-row">
+          <label>ご相談内容<span class="req">必須</span></label>
+          <select>
+            <option>選択してください</option>
+            <option>販売中物件の購入について</option>
+            <option>テナント募集中物件について</option>
+            <option>物件の内覧希望</option>
+            <option>その他のお問い合わせ</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>お問い合わせ内容<span class="req">必須</span></label>
+          <textarea placeholder="ご質問・ご相談内容をご記入ください"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold">送信する →</button>
+        </div>
+        <p class="form-note">※ ご入力いただいた個人情報は、お問い合わせへの対応のみに利用いたします。</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="logo.png" alt="サムライ・ジャパン株式会社" class="logo-img">
+    </div>
+    <div class="footer-info">
+      〒862-0950 熊本県熊本市中央区水前寺6-33-13
+    </div>
+    <nav class="footer-nav">
+      <a href="#services">事業内容</a>
+      <a href="#clients">取引企業</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#">プライバシーポリシー</a>
+    </nav>
+    <div class="copyright">© 2026 SAMURAI JAPAN CO., LTD. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ===== Design Note ===== -->
+<div class="design-note">
+  <strong>■ デザイン案プレビュー</strong>　熊本拠点／自社保有物件の販売＆テナント賃貸／LP型1ページ構成。
+</div>
+
+</body>
+</html>
